@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TipNTax</string>
+    <string name="calculate_button_name">Calculate TipNTax</string>
+    <string name="browser_button_name">Visit</string>
+    <string name="send_email_button_name">Send</string>
+    <string name="amount_prompt">amount</string>
+    <string name="total_label">total</string>
+    <string name="url_prompt">http://beijinger.style</string>
+    <string name="email_address_prompt">zyw870315@gmail.com</string>
+    <string name="email_message_prompt">message content</string>
+</resources>
