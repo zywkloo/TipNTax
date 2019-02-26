@@ -15,5 +15,6 @@
     <string name="calculate_activity_button">Calculate</string>
     <string name="price">Price</string>
     <string name="percentage">Percent</string>
+    <string name="percentage_prompt">Tip Percent</string>
     <string name="total">Total</string>
 </resources>

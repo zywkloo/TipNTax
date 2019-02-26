@@ -7,7 +7,7 @@
     tools:context=".TipCalcActivity">
 
     <Button
-        android:id="@+id/calButton"
+        android:id="@+id/tCalButton"
         android:layout_width="wrap_content"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
@@ -35,10 +35,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
-        android:autofillHints="@string/percentage"
+        android:autofillHints="@string/percentage_prompt"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="@string/percentage"
+        android:inputType="number"
+        android:hint="@string/percentage_prompt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/price" />
 
