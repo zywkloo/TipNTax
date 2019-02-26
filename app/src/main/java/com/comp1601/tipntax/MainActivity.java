@@ -41,12 +41,19 @@ public class MainActivity extends AppCompatActivity {
         mCalButton.setOnClickListener(v->{
             Log.i(TAG,"CalButton Clicked");
             String amountStr = mAmountTxt.getText().toString();
-            double amount = Double.valueOf(amountStr);
+            Log.i(TAG," value is "+mAmountTxt.getText());
+
+            if (amountStr==""||amountStr==" ") {
+                Intent intent =new Intent(MainActivity.this,TipCalcActivity.class);
+                startActivityForResult(intent, TIP_N_TAX_TOTAL_RESULT);
+            } else {
+                double amount = Double.valueOf(amountStr);
+                Intent intent =new Intent(MainActivity.this,TipCalcActivity.class);
+                intent.putExtra(TIP_N_TAX_MAIN_AMOUNT,amount);
+                startActivityForResult(intent, TIP_N_TAX_TOTAL_RESULT);
+            }
 
 
-            Intent intent =new Intent(MainActivity.this,TipCalcActivity.class);
-            intent.putExtra(TIP_N_TAX_MAIN_AMOUNT,amount);
-            startActivityForResult(intent, TIP_N_TAX_TOTAL_RESULT);
 
         });
 
