@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button calButton = (Button) findViewById(R.id.calButton);
+        Button mCalButton = (Button) findViewById(R.id.calButton);
         Button visitButton = (Button) findViewById(R.id.visitButton);
         Button sendButton = (Button) findViewById(R.id.sendButton);
 
@@ -29,11 +29,14 @@ public class MainActivity extends AppCompatActivity {
         TextView messageTxt=(TextView) findViewById(R.id.message_text);
 
 
-        calButton.setOnClickListener(v->{
+        mCalButton.setOnClickListener(v->{
             Log.i(TAG,"CalButton Clicked");
             TipNTaxCalculator cal= new TipNTaxCalculator(13,20);
-            double ret = cal.calculate(Double.valueOf(amountTxt.getText().toString()));
+            double amount = Double.valueOf(amountTxt.getText().toString());
+            double ret = cal.calculate(amount);
+            Log.i(TAG,"Amount =" + amount);
             String retStr = String.format("%.2f",ret);
+            Log.i(TAG,"Total"+retStr);
             amountTxt.setText(retStr);
 
         });

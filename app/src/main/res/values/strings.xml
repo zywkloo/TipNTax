@@ -8,4 +8,12 @@
     <string name="url_prompt">http://beijinger.style</string>
     <string name="email_address_prompt">zyw870315@gmail.com</string>
     <string name="email_message_prompt">message content</string>
+
+
+    <!-- TIP AND TAX CALCULATOR ACTIVITY -->
+    <string name="title_activity_tip_calc">Tip Calculator</string>
+    <string name="calculate_activity_button">Calculate</string>
+    <string name="price">Price</string>
+    <string name="percentage">Percent</string>
+    <string name="total">Total</string>
 </resources>
