@@ -2,11 +2,13 @@ package com.comp1601.tipntax;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
     private Button mCalButton;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (amountStr==""||amountStr==" ") {
                 Intent intent =new Intent(MainActivity.this,TipCalcActivity.class);
+                intent.putExtra(TIP_N_TAX_MAIN_AMOUNT,0.0);
                 startActivityForResult(intent, TIP_N_TAX_TOTAL_RESULT);
             } else {
                 double amount = Double.valueOf(amountStr);
@@ -56,13 +59,35 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+        mVisitButton.setOnClickListener((v) -> {
+            Log.i(TAG, "Visit Button Clicked");
+            String url = mWeburlTxt.getText().toString();
+            if(url.length() != 0){
+                String uri=mWeburlTxt.getText().toString();
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                startActivity(webIntent);
+            }
+        });
+
 
         mMessageTxt.setOnClickListener(v-> {
-            mMessageTxt.setHint(null);
+            mMessageTxt.setHint("Welcome to the Hell of Midterms");
+        });
+
+        mSendButton.setOnClickListener(v->{
+            String emailAddress= mEmailTxt.getText().toString();
+            String emailURI = "mailto:" + emailAddress;
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse(emailURI));
+            String emailSubject ="Welcome to the Hell of Midterms" ;
+            String emailBody = mMessageTxt.getText().toString() ;
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+            emailIntent.putExtra(Intent.EXTRA_TEXT, emailBody);
+
+            startActivity(Intent.createChooser(emailIntent, "Email Client ..."));
         });
 
         mAmountTxt.setOnClickListener(v-> {
-            mAmountTxt.setHint(null);
+            mAmountTxt.setHint("0.0");
         });
 
 
